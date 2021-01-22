@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+<fullyQualifiedTypeName name="day03.Access1"/>
+<fullyQualifiedTypeName name="inter.SuperImplTest2"/>
+<fullyQualifiedTypeName name="inter.ImplTest"/>
+<fullyQualifiedTypeName name="inter2.Soldier"/>
+<fullyQualifiedTypeName name="inter2.Army"/>
+<fullyQualifiedTypeName name="java.awt.Toolkit"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="gui.GUITest"/>
+<fullyQualifiedTypeName name="java.awt.Button"/>
+<fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
+</qualifiedTypeNameHistroy>

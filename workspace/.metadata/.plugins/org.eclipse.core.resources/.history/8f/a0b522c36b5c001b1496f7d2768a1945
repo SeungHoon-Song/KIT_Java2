@@ -1,0 +1,11 @@
+package day03;
+
+public class Tri extends Shape {
+
+	@Override
+	public double getArea(double w, double h) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

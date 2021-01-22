@@ -1,0 +1,14 @@
+package day03;
+
+public abstract class Shape {
+
+	public double area;
+	
+	public Shape() {}
+	
+	public abstract double getArea(double w, double h);
+	
+	public String getIntro() {
+		return "도형입니다.";
+	}
+}

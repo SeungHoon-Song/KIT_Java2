@@ -1,0 +1,188 @@
+package bank;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class ATM {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// 각 은행별로 최대100명의 고객을 유치할 수 있다.
+		Shinhan[] arS = new Shinhan[100];
+		Kookmin[] arK = new Kookmin[100];
+		Woori[] arW = new Woori[100];
+
+		Bank[] arNewMember = { new Shinhan(), new Kookmin(), new Woori() };
+
+		int[] arMemberCount = { 0, 0, 0 };
+
+		Bank[][] arrBank = { arS, arK, arW };
+
+		// 메인메뉴 : 은행 선택(신한, 국민, 우리)
+		String main_menu = "1. 신한은행\n2. 국민은행\n3. 우리은행\n4. 나가기";
+		// 사용자 메뉴 : 계좌개설, 입금하기, 출금하기, 잔액조회, 계좌번호 찾기, 돌아가기
+		String user_menu = "1.계좌개설\n2.입금하기\n3.출금하기\n4.잔액조회\n5.계좌번호 찾기\n6.돌아가기";
+
+		int bank_choice = 0;
+		int user_choice = 0;
+
+		Random r = new Random();
+
+		// 계좌 개설 시 필요한 정보
+		// 1. 예금주
+		String name = null;
+		// 2. 비밀번호(비밀번호는 4자리이고, 4자리를 입력할 때 까지 무한반복)
+		String pw = null;
+		// 3. 계좌번호(계좌번호는 6자리이며, 100000부터 시작한다. 중복검사 후 중복이 없을 때 까지 무한반복)
+		String account = null;
+		// new Random().nextInt() 사용
+		// 4. 핸드폰 번호(-를 제외하고 입력받으며, 중복검사 후 중복이 없을 때 까지 무한 반복)
+		String phone = null;
+
+		// ※중복검사는 해당 은행의 고객수 만큼만 반복하여 검사한다.
+
+		// 계좌번호 찾기 구현방법
+		// 핸드폰 번호와 비밀번호를 입력한 후 일치하는 고객의 계좌번호를 재발급해준다.
+
+		while (true) {
+			System.out.println(main_menu);
+			bank_choice = sc.nextInt();
+
+			if (bank_choice == 4) {
+				break;
+			}
+
+			while (true) {
+				System.out.println(user_menu);
+				user_choice = sc.nextInt();
+
+				if (user_choice == 6) {
+					break;
+				}
+				// 사용자 메뉴 : 계좌개설, 입금하기, 출금하기, 잔액조회, 계좌번호 찾기, 돌아가기
+				switch (user_choice) {
+				// 계좌개설
+				case 1:
+					// 현재 개설된 통장 개수와 은행에서 발급할 수 있는 통장의 개수가 일치하면
+					// 더 이상 계좌 개설을 할 수가 없다.
+					if (arMemberCount[bank_choice - 1] == arrBank[bank_choice - 1].length) {
+						System.out.println("정원 초과입니다.");
+						break;
+					}
+					System.out.print("예금주 : ");
+					name = sc.next();
+
+					while (true) {
+						System.out.print("비밀번호(4자리) : ");
+						pw = sc.next();
+						//4자리를 입력하지 않으면 무한반복
+						if(pw.length()==4) {break;}
+						
+					}
+					//계좌번호(계좌번호는 6자리이며, 100000부터 시작한다. 중복검사 후 중복이 없을 때 까지 무한반복)
+					while(true) {
+						//10000~999999
+						//0 ~ 899999 + 100000
+						//nextInt(10) : 0 ~ 9
+						account = r.nextInt(900000) + 100000 + "";	//6자리 랜덤한 계좌번호
+						
+						//모든 은행 수 만큼 반복(신한,국민,우리 3개)
+						for(int i=0; i<arMemberCount.length; i++) {
+							//각 은행별 고객 수만큼 반복
+							for(int j=0; j<arMemberCount[i]; j++) {
+								//모든 회원의 계좌번호를 방금 생성한 계좌번호와 같은지 비교
+								if(arrBank[i][j].account.equals(account)) {
+									//중복 있음
+									
+								}
+							}
+						}
+					}
+					break;
+				// 입금하기
+				case 2:
+
+					break;
+				// 출금하기
+				case 3:
+
+					break;
+				// 잔액조회
+				case 4:
+
+					break;
+				// 계좌번호 찾기
+				case 5:
+
+					break;
+				// 돌아가기
+				case 6:
+
+					break;
+				}
+
+			}
+		}
+
+	}
+
+}
+
+//int i = 0;
+//boolean flag = true;
+//boolean flag2 = true;
+//boolean pwflag = true;
+//while (flag) {
+//	System.out.print("은행 선택을 선택하세요.\n1.신한은행\n2.국민은행\n3.우리은행\n4.종료----->");
+//	int choice1 = sc.nextInt();
+//	if (choice1 == 4) {
+//		flag = false;
+//		break;
+//	}
+//	System.out.println("메뉴 : 1.계좌개설  2.입금하기  3.출금하기  4.잔액조회  5.계좌번호 찾기  6.돌아가기");
+//	flag2 = true;
+//	int choice2 = sc.nextInt();
+//	switch (choice2) {
+//	case 1:
+//		while (flag2) {
+//			System.out.print("예금주 : ");
+//			arNewMember[choice1-1].name = sc.next();
+//			System.out.print("비밀번호 : ");
+//			while (pwflag) {
+//				String pw = sc.next();
+//				if (pw.length() == 4) {
+//					arrBank[choice1 - 1][i].pw = pw;
+//					pwflag = false;
+//				} else {
+//					System.out.println("비밀번호는 4자리로 설정해야 합니다.");
+//					System.out.print("다시입력 : ");
+//				}
+//			}
+//			arrBank[choice1 - 1][i].account = new Random().nextInt(1000000);
+//			System.out.println("부여된 계좌번호는 " + arNewMember[choice1 - 1].account);
+//			System.out.print("핸드폰 번호 : ");
+//			arrBank[choice1 - 1][i].phone = sc.next();
+//			i++;
+//			flag2 = false;
+//		}
+//	case 2:
+//		System.out.print("입금 금액 : ");
+//		int inputMoney = sc.nextInt();
+//		if (inputMoney < 0) {
+//			throw new ArithmeticException();
+//		}
+//		arrBank[choice1 - 1][0].input(inputMoney);
+//	case 3:
+//		System.out.print("출금 금액 : ");
+//		int outputMoney = sc.nextInt();
+//		if (outputMoney < 0) {
+//			throw new ArithmeticException();
+//		}
+//		arrBank[choice1 - 1][0].output(outputMoney);
+//	case 4:
+//		arrBank[choice1 - 1][0].check();
+//	case 5:
+//	case 6:
+//		break;
+//	}
+//}

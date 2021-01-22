@@ -1,0 +1,25 @@
+package day01;
+
+public class MethodTask {
+	//1~n까지의 합을 println()으로 출력하는 메소드
+	void printSumFrom1(int end){
+		if(end<1) {
+			System.out.println("1보다 큰 수를 입력해주세요.");
+			return;
+		}
+		
+		int total = 0;
+		for(int i=0; i<end; i++) {
+			total = i+1;
+		}
+		System.out.println(total);
+	}
+	//나눗셈을 구해주는 메소드
+	public int divide(int num1, int num2) {
+		return num1/=num2;
+	}
+	public static void main(String[] args) {
+		MethodTask task = new MethodTask();
+		task.printSumFrom1(10);
+	}
+}

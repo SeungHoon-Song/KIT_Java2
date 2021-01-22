@@ -1,0 +1,5 @@
+package inter2;
+
+public abstract class army {
+
+}
