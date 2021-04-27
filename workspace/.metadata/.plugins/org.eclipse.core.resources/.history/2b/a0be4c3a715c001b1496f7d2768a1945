@@ -1,5 +1,0 @@
-package day03;
-
-public abstract class Rect extends Shape{
-
-}
